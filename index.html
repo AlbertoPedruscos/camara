@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Captura de Imágenes</title>
+</head>
+<body>
+    <!-- Un input de tipo file con un ID -->
+    <input type="file" accept="image/*" capture="environment" id="fileInput">
+    
+    <!-- Un contenedor donde se mostrará la imagen seleccionada -->
+    <div id="imagen-container"></div>
+
+    <!-- Importamos el archivo de JavaScript -->
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0]; // Obtenemos el archivo seleccionado
+            const img = document.createElement('img'); // Creamos un nuevo elemento <img>
+            img.src = URL.createObjectURL(file); // Establecemos la fuente de la imagen
+            document.getElementById('imagen-container').appendChild(img); // Añadimos la imagen al contenedor
+        });
+    </script>
+</body>
+</html>
